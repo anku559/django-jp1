@@ -1,0 +1,22 @@
+1. pipenv install django
+  Pipfile (Like package.json for JS Projects)
+
+2. pipenv shell
+  - Runs the virtual environment (not the global one)
+
+3. django-admin start-project johan_one .
+  - . Current directory as Project Directory
+
+4. pipenv --venv
+  - Path to virtual environment
+
+5. Adding Python Interpreter
+  - C:\Users\ankit\.virtualenvs\phase-1-nSIgAWo-\bin\python
+  - Need to append \bin\python for the path
+
+6. python manage.py runserver 9000
+  - Default port used is 8000
+
+7. python manage.py startapp users
+  - Creates a new users app in the parent directory
+  - Register the app in ./johan_one/settings => INSTALLED_APPS = ["users"]
