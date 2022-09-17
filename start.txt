@@ -20,3 +20,11 @@
 7. python manage.py startapp users
   - Creates a new users app in the parent directory
   - Register the app in ./johan_one/settings => INSTALLED_APPS = ["users"]
+
+8. VS Code Debug Toolbar
+
+9. Django Debug Toolbar
+  - pipenv install django-debug-toolbar 
+  - INSTALLED_APPS = ["debug_toolbar"]
+  - MIDDLEWARE = ["debug_toolbar.middleware.DebugToolbarMiddleware"]
+  - INTERNAL_IPS = ["127.0.0.1"]
