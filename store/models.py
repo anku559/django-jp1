@@ -18,6 +18,7 @@ class Product(models.Model):
     # id = models.CharField(max_length=36, primary_key=True)
 
     title = models.CharField(max_length=255)
+    slug = models.SlugField(default="-")
     description = models.TextField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     inventory = models.IntegerField()
@@ -25,6 +26,7 @@ class Product(models.Model):
     collection = models.ForeignKey(Collection, on_delete=models.PROTECT)
     # ManyToMany - Django will create the reverse relationship in the Promotion class
     promotions = models.ManyToManyField(Promotion)  # Default Name product_set
+    unit_price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     # promotions = models.ManyToManyField(Promotion, related_name="products")
 
 
@@ -43,15 +45,25 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     phone = models.CharField(max_length=255)
+    user_name = models.CharField(max_length=255)
     birth_date = models.DateField(null=True)
     membership = models.CharField(
         max_length=1, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_BRONZE
     )
 
+    # class Meta:
+    #     db_table = "store_customers"
+    #     indexes = [models.Index(fields=["last_name", "first_name"])]
+
 
 class Address(models.Model):
-    street = models.CharField(max_length=255)
-    city = models.CharField(max_length=255)
+    home_building = models.CharField(max_length=255, null=True)
+    street = models.CharField(max_length=255, null=True)
+    landmark = models.CharField(max_length=255, null=True)
+    city = models.CharField(max_length=50, null=True)
+    country = models.CharField(max_length=30, null=True)
+    postal_code = models.CharField(max_length=10, null=True)
+    zip = models.CharField(max_length=6, default=None, null=True)
 
     # One To One Relationship
     # customer = models.OneToOneField(
