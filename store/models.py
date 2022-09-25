@@ -12,6 +12,12 @@ class Collection(models.Model):
         "Product", on_delete=models.SET_NULL, null=True, related_name="+"
     )
 
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ["title"]
+
 
 class Product(models.Model):
     # If needs to create primary key (Django creates on own)
@@ -28,6 +34,12 @@ class Product(models.Model):
     promotions = models.ManyToManyField(Promotion)  # Default Name product_set
     unit_price = models.DecimalField(max_digits=6, decimal_places=2, null=True)
     # promotions = models.ManyToManyField(Promotion, related_name="products")
+
+    def __str__(self) -> str:
+        return self.title
+
+    class Meta:
+        ordering = ["title"]
 
 
 class Customer(models.Model):

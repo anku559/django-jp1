@@ -4,6 +4,6 @@
   "editor.formatOnPaste": false,
   "python.linting.flake8Args": ["--linelength", "120"],
   "emmet.includeLanguages": {
-    "django-html": "html",
-}
+    "django-html": "html"
+  }
 }

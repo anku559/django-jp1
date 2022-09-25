@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path, include
 import debug_toolbar
 
+admin.site.site_header = "HEADER CHANGED"
+admin.site.index_title = "INDEX TITLE CHANGED"
+
 urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     path("admin/", admin.site.urls),
